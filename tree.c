@@ -38,22 +38,22 @@ void printLevelOrder(struct Node *root)
 	if (root == NULL)
 		return;
 
-	myQ[qrear++] = root;
+	tr[qrear++] = root;
 
-	while (q_front != q_rear)
+	while (qfront != qrear)
 	{
 
 		int nodeCount = qrear - qfront;
 		for (int i = 0; i < nodeCount; i++)
 		{
-			struct Node *node = myQ[qfront];
+			struct Node *node = tr[qfront];
 			line[lindex++] = node->data;
 			qfront++;
 			if (node->left != NULL)
-				myQ[qrear++] = node->left;
+				tr[qrear++] = node->left;
 
 			if (node->right != NULL)
-				myQ[qrear++] = node->right;
+				tr[qrear++] = node->right;
 		}
 
 		printf("\n");
